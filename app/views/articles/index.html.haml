@@ -1,0 +1,21 @@
+%h1 Articles Listing
+%table
+  %thead
+    %tr
+      %th Title
+      %th Author
+      %th Content
+      %th Description
+      %th Actions
+  %tbody
+    - @articles.each do |articles|
+      %tr
+        %td= articles.title
+        %td= articles.author
+        %td= articles.content
+        %td= articles.description
+        %td= link_to "Edit", edit_article_path(articles)
+        %td
+          = link_to "Destroy", article_path(articles), method: :delete
+%br/
+= link_to "New Article" , new_article_path()
